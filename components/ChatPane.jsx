@@ -1,10 +1,9 @@
 'use client';
 
 import { useState, forwardRef, useImperativeHandle, useRef, useEffect } from 'react';
-import { Pencil, RefreshCw, Check, X, Square, Copy, Trash2 } from 'lucide-react';
-import Message from './Message';
-import Composer from './Composer';
+
 import { cls, timeAgo } from './utils';
+
 import { useI18n } from '@/lib/i18n';
 import { useUserProfile } from '@/lib/user-profile';
 

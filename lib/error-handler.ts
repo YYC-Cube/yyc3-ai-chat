@@ -18,7 +18,7 @@ export class ErrorHandler {
    */
   static handle(error: unknown, context: string) {
     // 控制台日志（不包含敏感信息）
-    // eslint-disable-next-line no-console
+     
     console.error(`🚨 [${context}] 错误:`, error);
     // 外部告警（通过 ApiHealth 分发到 Slack/Sentry）
     ApiHealth.sendAlert({

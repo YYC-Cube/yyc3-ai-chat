@@ -1,9 +1,9 @@
-import React, { useState, useRef, useEffect } from 'react';
-import { Star, MoreHorizontal, FolderIcon } from 'lucide-react';
+import { useState, useRef, useEffect } from 'react';
+
 import { cls, timeAgo } from './utils';
-import { useI18n } from '@/lib/i18n';
-import { motion, AnimatePresence } from 'framer-motion';
+
 import { useToast } from '@/hooks/use-toast';
+import { useI18n } from '@/lib/i18n';
 
 export default function ConversationRow({
   data,

@@ -4,7 +4,9 @@
  * @module api/alerts-test
  * @author YYC
  */
-import { NextRequest, NextResponse } from 'next/server';
+import type { NextRequest} from 'next/server';
+import { NextResponse } from 'next/server';
+
 import { ApiHealth } from '@/lib/api-health';
 
 export const GET = ApiHealth.monitorRoute(

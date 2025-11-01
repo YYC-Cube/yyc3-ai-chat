@@ -1,6 +1,3 @@
-import React from 'react';
-import { AnimatePresence, motion } from 'framer-motion';
-import { ChevronDown, ChevronRight } from 'lucide-react';
 
 export default function SidebarSection({ icon, title, children, collapsed, onToggle }) {
   return (

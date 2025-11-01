@@ -1,6 +1,7 @@
+import { act } from '@testing-library/react';
+
 import { render } from '@/jest.setup';
 import { useI18n } from '@/lib/i18n';
-import { act } from '@testing-library/react';
 
 const TestComponent = () => {
   const { t, locale, setLocale } = useI18n();

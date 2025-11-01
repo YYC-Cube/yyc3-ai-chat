@@ -7,9 +7,11 @@
  * @created 2024-10-31
  * @updated 2024-10-31
  */
-import { NextRequest, NextResponse } from 'next/server';
-import { ApiHealth } from '@/lib/api-health';
+import type { NextRequest} from 'next/server';
+import { NextResponse } from 'next/server';
 import { z } from 'zod';
+
+import { ApiHealth } from '@/lib/api-health';
 
 // POST 请求体校验
 const PostSchema = z.object({

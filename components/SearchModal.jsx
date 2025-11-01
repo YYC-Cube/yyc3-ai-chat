@@ -1,7 +1,6 @@
 'use client';
-import { motion, AnimatePresence } from 'framer-motion';
-import { X, SearchIcon, Plus, Clock } from 'lucide-react';
 import { useState, useEffect, useMemo } from 'react';
+
 import { useI18n } from '@/lib/i18n';
 
 function getTimeGroup(dateString) {

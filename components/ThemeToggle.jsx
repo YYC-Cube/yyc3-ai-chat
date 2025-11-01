@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from 'react';
-import { Sun, Moon } from 'lucide-react';
+import { useEffect, useState } from 'react';
 
 /**
  * @file 主题切换按钮

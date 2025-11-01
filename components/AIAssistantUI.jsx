@@ -1,15 +1,11 @@
 'use client';
 
-import { Calendar, LayoutGrid, MoreHorizontal } from 'lucide-react';
 import React, { useEffect, useMemo, useRef, useState } from 'react';
-import ChatPane from './ChatPane';
-import GhostIconButton from './GhostIconButton';
-import Header from './Header';
-import Sidebar from './Sidebar';
-import ThemeToggle from './ThemeToggle';
+
 import { INITIAL_CONVERSATIONS, INITIAL_FOLDERS, INITIAL_TEMPLATES } from './mockData';
-import { useI18n } from '@/lib/i18n';
+
 import { useToast } from '@/hooks/use-toast';
+import { useI18n } from '@/lib/i18n';
 
 export default function AIAssistantUI() {
   const { t } = useI18n();

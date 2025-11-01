@@ -1,9 +1,9 @@
 'use client';
 
-import { Loader2, Mic, Plus, Send } from 'lucide-react';
 import { forwardRef, useEffect, useImperativeHandle, useRef, useState } from 'react';
-import ComposerActionsPopover from './ComposerActionsPopover';
+
 import { cls } from './utils';
+
 import { useI18n } from '@/lib/i18n';
 import { useUserProfile } from '@/lib/user-profile';
 

@@ -1,11 +1,9 @@
 'use client';
 
 import { useState, useRef, useEffect } from 'react';
-import { FolderIcon, ChevronRight, ChevronDown, MoreHorizontal } from 'lucide-react';
-import ConversationRow from './ConversationRow';
-import { motion, AnimatePresence } from 'framer-motion';
-import { useI18n } from '@/lib/i18n';
+
 import { useToast } from '@/hooks/use-toast';
+import { useI18n } from '@/lib/i18n';
 
 export default function FolderRow({
   name,

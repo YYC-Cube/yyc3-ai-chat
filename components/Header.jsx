@@ -1,7 +1,6 @@
 'use client';
-import { MoreHorizontal, Menu, ChevronDown } from 'lucide-react';
 import { useState } from 'react';
-import GhostIconButton from './GhostIconButton';
+
 import { useI18n } from '@/lib/i18n';
 import { useUserProfile } from '@/lib/user-profile';
 

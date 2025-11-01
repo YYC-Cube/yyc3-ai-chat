@@ -1,9 +1,11 @@
 'use client';
 
-import { createContext, useContext, useEffect, useState, ReactNode } from 'react';
+import type { ReactNode } from 'react';
+import { createContext, useContext, useEffect, useState } from 'react';
+
 // 确保 zh-CN.json 和 en-US.json 结构完全一致（字段一一对应）
-import zhCN from '@/locales/zh-CN.json';
 import enUS from '@/locales/en-US.json';
+import zhCN from '@/locales/zh-CN.json';
 
 // 语言类型定义
 type Locale = 'zh-CN' | 'en-US';

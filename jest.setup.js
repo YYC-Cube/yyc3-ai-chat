@@ -1,4 +1,4 @@
-import { I18nProvider } from '@/lib/i18n';
+
 import '@testing-library/jest-dom';
 import { render } from '@testing-library/react';
 

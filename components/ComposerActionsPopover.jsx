@@ -1,16 +1,15 @@
 'use client';
-import { useState } from 'react';
 import {
   Paperclip,
   Bot,
   Search,
   Palette,
   BookOpen,
-  MoreHorizontal,
   Globe,
-  ChevronRight,
 } from 'lucide-react';
-import { Popover, PopoverContent, PopoverTrigger } from './ui/popover';
+import { useState } from 'react';
+
+
 import { useI18n } from '@/lib/i18n';
 
 export default function ComposerActionsPopover({ children }) {

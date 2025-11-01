@@ -1,41 +1,16 @@
 'use client';
-import { AnimatePresence, motion } from 'framer-motion';
-import {
-  Asterisk,
-  Clock,
-  FileText,
-  FolderIcon,
-  PanelLeftClose,
-  PanelLeftOpen,
-  Plus,
-  SearchIcon,
-  Settings,
-  X,
-  Star,
-} from 'lucide-react';
+
+
 import { useState, useEffect } from 'react';
-import ConversationRow from './ConversationRow';
-import CreateFolderModal from './CreateFolderModal';
-import CreateTemplateModal from './CreateTemplateModal';
-import FolderRow from './FolderRow';
-import SearchModal from './SearchModal';
-import SettingsPopover from './SettingsPopover';
-import SidebarSection from './SidebarSection';
-import TemplateRow from './TemplateRow';
-import ThemeToggle from './ThemeToggle';
+
 import { cls } from './utils';
+
+
+
+import { useCollapsedControls } from '@/hooks/use-collapsed-controls';
+import { useIsMobile } from '@/hooks/use-mobile';
 import { useI18n } from '@/lib/i18n';
 import { useUserProfile } from '@/lib/user-profile';
-import {
-  ContextMenu,
-  ContextMenuContent,
-  ContextMenuItem,
-  ContextMenuTrigger,
-} from '@/components/ui/context-menu';
-import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
-import { Sheet, SheetContent } from '@/components/ui/sheet';
-import { useIsMobile } from '@/hooks/use-mobile';
-import { useCollapsedControls } from '@/hooks/use-collapsed-controls';
 
 export default function Sidebar({
   open,

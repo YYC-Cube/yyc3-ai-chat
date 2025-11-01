@@ -1,16 +1,9 @@
 'use client';
+
+
 import { useState, useEffect } from 'react';
-import {
-  User,
-  Globe,
-  HelpCircle,
-  Crown,
-  BookOpen,
-  LogOut,
-  ChevronRight,
-  Check,
-} from 'lucide-react';
-import { Popover, PopoverContent, PopoverTrigger } from './ui/popover';
+
+
 import { useI18n } from '@/lib/i18n';
 import { useUserProfile } from '@/lib/user-profile';
 

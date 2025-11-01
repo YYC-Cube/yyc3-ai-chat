@@ -4,6 +4,7 @@
 // @created 2025-11-01
 
 import { test as base, expect } from '@playwright/test';
+
 import { installDefaultInitScripts } from './setup';
 
 /**

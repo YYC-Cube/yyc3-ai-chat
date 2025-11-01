@@ -7,7 +7,9 @@
  * @created 2024-10-31
  * @updated 2024-10-31
  */
-import { NextRequest, NextResponse } from 'next/server';
+import type { NextRequest} from 'next/server';
+import { NextResponse } from 'next/server';
+
 import { RouteHealth } from './health-monitor';
 
 /** 指标结构 */
@@ -65,7 +67,7 @@ export class ApiHealth {
   static sendAlert(alert: Alert) {
     this.alerts.push(alert);
     // 默认输出到控制台；可接入外部监控
-    // eslint-disable-next-line no-console
+     
     console.error(`🚨 [API] ${alert.type}: ${alert.message}`, alert.detail);
     this.onAlert?.(alert);
   }

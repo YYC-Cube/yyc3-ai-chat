@@ -9,10 +9,11 @@
 
 'use client';
 
+import { Analytics } from '@vercel/analytics/react';
+
+import { Toaster } from '@/components/ui/toaster';
 import { I18nProvider } from '@/lib/i18n';
 import { UserProfileProvider } from '@/lib/user-profile';
-import { Analytics } from '@vercel/analytics/react';
-import { Toaster } from '@/components/ui/toaster';
 
 interface ProvidersProps {
   children: React.ReactNode;

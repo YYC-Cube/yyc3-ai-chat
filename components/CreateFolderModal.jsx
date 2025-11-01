@@ -1,9 +1,8 @@
 'use client';
-import { motion, AnimatePresence } from 'framer-motion';
-import { X, Lightbulb } from 'lucide-react';
 import { useState } from 'react';
-import { useI18n } from '@/lib/i18n';
+
 import { useToast } from '@/hooks/use-toast';
+import { useI18n } from '@/lib/i18n';
 
 export default function CreateFolderModal({ isOpen, onClose, onCreateFolder }) {
   const [folderName, setFolderName] = useState('');

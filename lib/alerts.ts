@@ -7,10 +7,12 @@
  * @created 2024-10-31
  * @updated 2024-10-31
  */
-import { env } from './env';
+import * as Sentry from '@sentry/node';
+
 import type { Alert } from './api-health';
 import { ApiHealth } from './api-health';
-import * as Sentry from '@sentry/node';
+import { env } from './env';
+
 
 /**
  * 初始化 Sentry（仅当存在 SENTRY_DSN 时）
@@ -56,7 +58,7 @@ async function sendSlack(alert: Alert) {
       body: JSON.stringify({ text: lines.join('\n') }),
     });
   } catch (err) {
-    // eslint-disable-next-line no-console
+     
     console.error('Slack 告警发送失败', err);
   }
 }
@@ -98,7 +100,7 @@ async function sendSentry(alert: Alert) {
     Sentry.setTags(tags);
     Sentry.setContext('api-detail', extra);
   } catch (err) {
-    // eslint-disable-next-line no-console
+     
     console.error('Sentry 告警发送失败', err);
   }
 }
