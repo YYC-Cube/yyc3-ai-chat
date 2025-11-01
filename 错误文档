@@ -1,0 +1,907 @@
+conversation-move.spec.ts:12
+——————————————————————————
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name:  >> 将新建会话移动到 Personal 文件夹
+- Location: conversation-move.spec.ts:12:5
+
+# Error details
+
+```
+Error: expect(locator).toBeVisible() failed
+
+Locator: getByTitle(/(新建会话|New Chat)/)
+Expected: visible
+Error: strict mode violation: getByTitle(/(新建会话|New Chat)/) resolved to 3 elements:
+    1) <button aria-label="新建会话" title="新建会话 (⌘N)" aria-describedby="desc-newchat-main" class="flex w-full items-center justify-center gap-2 rounded-full bg-zinc-900 px-4 py-2 text-sm font-medium text-white shadow-sm transition hover:bg-zinc-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 dark:bg-white dark:text-zinc-900">…</button> aka getByRole('button', { name: '新建会话', exact: true })
+    2) <div title="新建会话" tabindex="0" role="button" class="-mx-1 flex w-[calc(100%+8px)] items-center gap-2 rounded-lg px-2 py-2 text-left bg-zinc-100 text-zinc-900 dark:bg-zinc-800/60 dark:text-zinc-100">…</div> aka getByRole('button', { name: '新建会话 1秒钟前 固定 更多选项' }).first()
+    3) <div title="新建会话" tabindex="0" role="button" class="-mx-1 flex w-[calc(100%+8px)] items-center gap-2 rounded-lg px-2 py-2 text-left hover:bg-zinc-100 dark:hover:bg-zinc-800">…</div> aka getByRole('button', { name: '新建会话 1秒钟前 固定 更多选项' }).nth(1)
+
+Call log:
+  - Expect "toBeVisible" with timeout 5000ms
+  - waiting for getByTitle(/(新建会话|New Chat)/)
+
+
+  18 |   // 在活动会话行内打开“更多选项”并选择“移动到文件夹”
+  19 |   const row = page.getByTitle(/(新建会话|New Chat)/)
+> 20 |   await expect(row).toBeVisible()
+     |                     ^
+  21 |   await row.hover();
+  22 |   await row.getByRole('button', { name: '更多选项' }).click();
+  23 |   await page.getByRole('button', { name: '移动到文件夹' }).click();
+    at /Users/my/Downloads/AI-Chat/e2e/conversation-move.spec.ts:20:21
+```
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - generic [ref=e5]:
+    - complementary [ref=e6]:
+      - generic [ref=e7]:
+        - generic [ref=e8]:
+          - img "YYC³ AI" [ref=e9]
+          - generic [ref=e11]: YYC³ AI
+        - generic [ref=e12]:
+          - button "关闭侧边栏" [ref=e13]:
+            - img [ref=e14]
+          - generic [ref=e17]: 折叠侧边栏以节省空间
+          - generic [ref=e18]: 关闭移动端侧边栏
+      - generic [ref=e19]:
+        - generic [ref=e20]: 搜索
+        - generic [ref=e21]:
+          - img
+          - textbox "搜索" [ref=e22]:
+            - /placeholder: 搜索对话...
+      - generic [ref=e23]:
+        - button "新建会话" [ref=e24]:
+          - img [ref=e25]
+          - text: 新建会话
+        - generic [ref=e26]: 创建新会话，支持快捷键 ⌘N
+      - navigation [ref=e27]:
+        - button "展开分区" [ref=e29]:
+          - img [ref=e31]
+          - generic [ref=e33]:
+            - img [ref=e35]
+            - text: 置顶会话
+        - generic [ref=e37]:
+          - button "折叠分区" [expanded] [ref=e38]:
+            - img [ref=e40]
+            - generic [ref=e42]:
+              - img [ref=e44]
+              - text: 最近
+          - generic [ref=e47]:
+            - button "新建会话 1秒钟前 固定 更多选项" [ref=e49]:
+              - generic [ref=e51]:
+                - generic [ref=e52]: 新建会话
+                - generic [ref=e53]: 1秒钟前
+              - button "固定" [ref=e54]:
+                - img [ref=e55]
+              - button "更多选项" [ref=e58]:
+                - img [ref=e59]
+            - button "新建会话 1秒钟前 固定 更多选项" [ref=e64]:
+              - generic [ref=e66]:
+                - generic [ref=e67]: 新建会话
+                - generic [ref=e68]: 1秒钟前
+              - button "固定" [ref=e69]:
+                - img [ref=e70]
+              - button "更多选项" [ref=e73]:
+                - img [ref=e74]
+            - 'button "Research: vector databases vs RAG 10分钟前 固定 更多选项" [ref=e79]':
+              - generic [ref=e81]:
+                - generic [ref=e82]: "Research: vector databases vs RAG"
+                - generic [ref=e83]: 10分钟前
+              - button "固定" [ref=e84]:
+                - img [ref=e85]
+              - button "更多选项" [ref=e88]:
+                - img [ref=e89]
+            - button "Prompt library – onboarding 15分钟前 固定 更多选项" [ref=e94]:
+              - generic [ref=e96]:
+                - generic [ref=e97]: Prompt library – onboarding
+                - generic [ref=e98]: 15分钟前
+              - button "固定" [ref=e99]:
+                - img [ref=e100]
+              - button "更多选项" [ref=e103]:
+                - img [ref=e104]
+            - 'button "AI agent: inbox clean-up flow 35分钟前 固定 更多选项" [ref=e109]':
+              - generic [ref=e111]:
+                - generic [ref=e112]: "AI agent: inbox clean-up flow"
+                - generic [ref=e113]: 35分钟前
+              - button "固定" [ref=e114]:
+                - img [ref=e115]
+              - button "更多选项" [ref=e118]:
+                - img [ref=e119]
+            - 'button "Code review: message composer 50分钟前 固定 更多选项" [ref=e124]':
+              - generic [ref=e126]:
+                - generic [ref=e127]: "Code review: message composer"
+                - generic [ref=e128]: 50分钟前
+              - button "固定" [ref=e129]:
+                - img [ref=e130]
+              - button "更多选项" [ref=e133]:
+                - img [ref=e134]
+            - button "LLM evals – rubric + dataset 450小时前 固定 更多选项" [ref=e139]:
+              - generic [ref=e141]:
+                - generic [ref=e142]: LLM evals – rubric + dataset
+                - generic [ref=e143]: 450小时前
+              - button "固定" [ref=e144]:
+                - img [ref=e145]
+              - button "更多选项" [ref=e148]:
+                - img [ref=e149]
+            - button "Bug triage notes 600小时前 固定 更多选项" [ref=e154]:
+              - generic [ref=e156]:
+                - generic [ref=e157]: Bug triage notes
+                - generic [ref=e158]: 600小时前
+              - button "固定" [ref=e159]:
+                - img [ref=e160]
+              - button "更多选项" [ref=e163]:
+                - img [ref=e164]
+            - button "Weekly review – personal goals 900小时前 固定 更多选项" [ref=e169]:
+              - generic [ref=e171]:
+                - generic [ref=e172]: Weekly review – personal goals
+                - generic [ref=e173]: 900小时前
+              - button "固定" [ref=e174]:
+                - img [ref=e175]
+              - button "更多选项" [ref=e178]:
+                - img [ref=e179]
+            - button "Trip checklist – Paris with family 12,342天前 固定 更多选项" [ref=e184]:
+              - generic [ref=e186]:
+                - generic [ref=e187]: Trip checklist – Paris with family
+                - generic [ref=e188]: 12,342天前
+              - button "固定" [ref=e189]:
+                - img [ref=e190]
+              - button "更多选项" [ref=e193]:
+                - img [ref=e194]
+        - generic [ref=e198]:
+          - button "折叠分区" [expanded] [ref=e199]:
+            - img [ref=e201]
+            - generic [ref=e203]:
+              - img [ref=e205]
+              - generic [ref=e207]:
+                - generic [ref=e208]: 文件夹
+                - generic [ref=e209]: 3 个文件夹
+          - generic [ref=e211]:
+            - button "新建文件夹" [ref=e212]:
+              - img [ref=e213]
+              - text: 新建文件夹
+            - generic [ref=e214]: 创建新的文件夹以组织会话
+            - generic [ref=e216]:
+              - button "展开文件夹" [ref=e217]:
+                - img [ref=e218]
+                - img [ref=e220]
+                - generic [ref=e222]: Work Projects
+              - generic [ref=e223]:
+                - generic [ref=e224]: "6"
+                - button "更多选项" [ref=e226]:
+                  - img [ref=e227]
+            - generic [ref=e232]:
+              - button "展开文件夹" [ref=e233]:
+                - img [ref=e234]
+                - img [ref=e236]
+                - generic [ref=e238]: Personal
+              - generic [ref=e239]:
+                - generic [ref=e240]: "3"
+                - button "更多选项" [ref=e242]:
+                  - img [ref=e243]
+            - generic [ref=e248]:
+              - button "展开文件夹" [ref=e249]:
+                - img [ref=e250]
+                - img [ref=e252]
+                - generic [ref=e254]: Code Reviews
+              - generic [ref=e255]:
+                - generic [ref=e256]: "2"
+                - button "更多选项" [ref=e258]:
+                  - img [ref=e259]
+        - button "展开分区" [ref=e264]:
+          - img [ref=e266]
+          - generic [ref=e268]:
+            - img [ref=e270]
+            - generic [ref=e273]:
+              - generic [ref=e274]: 模板
+              - generic [ref=e275]: 4 个模板
+      - generic [ref=e276]:
+        - generic [ref=e277]:
+          - button "设置" [ref=e278]:
+            - img [ref=e279]
+            - text: 设置
+          - button "Toggle theme" [ref=e283]:
+            - img [ref=e284]
+            - generic [ref=e286]: Dark
+        - generic [ref=e287]:
+          - generic "我" [ref=e288]
+          - generic [ref=e289]:
+            - generic [ref=e290]: 我
+            - generic [ref=e291]: 专业版工作区
+    - main [ref=e292]:
+      - generic [ref=e293]:
+        - generic [ref=e294]: 打开侧边栏，支持快捷键 ⌘B
+        - generic [ref=e295]:
+          - button "common.model" [ref=e296]:
+            - generic [ref=e297]: 🤖
+            - text: GPT-5
+            - img [ref=e298]
+          - generic [ref=e300]: 选择当前对话模型
+        - generic [ref=e301]:
+          - generic [ref=e302]:
+            - button "语言" [ref=e303]:
+              - text: 简体中文
+              - img [ref=e304]
+            - generic [ref=e306]: 选择界面语言
+          - button "更多" [ref=e307]:
+            - img [ref=e308]
+      - generic [ref=e312]:
+        - generic [ref=e313]:
+          - generic [ref=e315]: 新建会话
+          - generic [ref=e316]: 更新于 1秒钟前 · 0 条消息
+          - generic [ref=e317]:
+            - generic [ref=e318]: 认证
+            - generic [ref=e319]: 个性化
+            - generic [ref=e320]: 经验丰富
+            - generic [ref=e321]: 乐于助人
+          - generic [ref=e322]: 你好，开始聊天吧...
+        - generic [ref=e324]:
+          - generic [ref=e325]:
+            - textbox "请输入内容..." [ref=e327]
+            - generic [ref=e328]:
+              - button "添加附件" [ref=e329]:
+                - img [ref=e330]
+              - generic [ref=e331]:
+                - button "语音输入" [ref=e332]:
+                  - img [ref=e333]
+                - button "发送" [disabled] [ref=e336]:
+                  - img [ref=e337]
+                  - generic [ref=e340]: 发送
+          - generic [ref=e341]: 按 Enter 发送 · Shift+Enter 换行
+  - region "Notifications (F8)":
+    - list
+  - button "Open Next.js Dev Tools" [ref=e347] [cursor=pointer]:
+    - img [ref=e348]
+  - alert [ref=e351]
+```
+
+# Test source
+
+```ts
+   1 | import { test, expect } from './test-base';
+   2 |
+   3 |
+   4 | /**
+   5 |  * @description 会话移动到文件夹 e2e
+   6 |  * @author YYC
+   7 |  * @created 2025-11-01
+   8 |  */
+   9 |
+  10 |
+  11 |
+  12 | test('将新建会话移动到 Personal 文件夹', async ({ page }) => {
+  13 |   await page.goto('http://localhost:3003/');
+  14 |
+  15 |   // 新建会话（使用快捷键 ⌘N）
+  16 |   await page.keyboard.press('Meta+N')
+  17 |
+  18 |   // 在活动会话行内打开“更多选项”并选择“移动到文件夹”
+  19 |   const row = page.getByTitle(/(新建会话|New Chat)/)
+> 20 |   await expect(row).toBeVisible()
+     |                     ^ Error: expect(locator).toBeVisible() failed
+  21 |   await row.hover();
+  22 |   await row.getByRole('button', { name: '更多选项' }).click();
+  23 |   await page.getByRole('button', { name: '移动到文件夹' }).click();
+  24 |   await page.getByRole('button', { name: 'Personal' }).click();
+  25 |
+  26 |   // 展开 Personal 文件夹并断言会话存在
+  27 |   await page.getByRole('button', { name: '展开文件夹' }).filter({ hasText: 'Personal' }).click();
+  28 |   await expect(page.getByText('新建会话')).toBeVisible();
+  29 | });
+  30 | //
+——————————————————————————
+conversation-export.spec.ts:12
+——————————————————————————
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name:  >> 导出会话为 Markdown
+- Location: conversation-export.spec.ts:12:5
+
+# Error details
+
+```
+Error: expect(locator).toBeVisible() failed
+
+Locator: getByTitle(/(新建会话|New Chat)/)
+Expected: visible
+Error: strict mode violation: getByTitle(/(新建会话|New Chat)/) resolved to 3 elements:
+    1) <button aria-label="新建会话" title="新建会话 (⌘N)" aria-describedby="desc-newchat-main" class="flex w-full items-center justify-center gap-2 rounded-full bg-zinc-900 px-4 py-2 text-sm font-medium text-white shadow-sm transition hover:bg-zinc-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 dark:bg-white dark:text-zinc-900">…</button> aka getByRole('button', { name: '新建会话', exact: true })
+    2) <div title="新建会话" tabindex="0" role="button" class="-mx-1 flex w-[calc(100%+8px)] items-center gap-2 rounded-lg px-2 py-2 text-left bg-zinc-100 text-zinc-900 dark:bg-zinc-800/60 dark:text-zinc-100">…</div> aka getByRole('button', { name: '新建会话 1秒钟前 固定 更多选项' }).first()
+    3) <div title="新建会话" tabindex="0" role="button" class="-mx-1 flex w-[calc(100%+8px)] items-center gap-2 rounded-lg px-2 py-2 text-left hover:bg-zinc-100 dark:hover:bg-zinc-800">…</div> aka getByRole('button', { name: '新建会话 1秒钟前 固定 更多选项' }).nth(1)
+
+Call log:
+  - Expect "toBeVisible" with timeout 5000ms
+  - waiting for getByTitle(/(新建会话|New Chat)/)
+
+
+  18 |   // 在活动会话行内打开“更多选项”
+  19 |   const row = page.getByTitle(/(新建会话|New Chat)/)
+> 20 |   await expect(row).toBeVisible()
+     |                     ^
+  21 |   await row.hover();
+  22 |   await row.getByRole('button', { name: '更多选项' }).click();
+  23 |
+    at /Users/my/Downloads/AI-Chat/e2e/conversation-export.spec.ts:20:21
+```
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - generic [ref=e5]:
+    - complementary [ref=e6]:
+      - generic [ref=e7]:
+        - generic [ref=e8]:
+          - img "YYC³ AI" [ref=e9]
+          - generic [ref=e11]: YYC³ AI
+        - generic [ref=e12]:
+          - button "关闭侧边栏" [ref=e13]:
+            - img [ref=e14]
+          - generic [ref=e17]: 折叠侧边栏以节省空间
+          - generic [ref=e18]: 关闭移动端侧边栏
+      - generic [ref=e19]:
+        - generic [ref=e20]: 搜索
+        - generic [ref=e21]:
+          - img
+          - textbox "搜索" [ref=e22]:
+            - /placeholder: 搜索对话...
+      - generic [ref=e23]:
+        - button "新建会话" [ref=e24]:
+          - img [ref=e25]
+          - text: 新建会话
+        - generic [ref=e26]: 创建新会话，支持快捷键 ⌘N
+      - navigation [ref=e27]:
+        - button "展开分区" [ref=e29]:
+          - img [ref=e31]
+          - generic [ref=e33]:
+            - img [ref=e35]
+            - text: 置顶会话
+        - generic [ref=e37]:
+          - button "折叠分区" [expanded] [ref=e38]:
+            - img [ref=e40]
+            - generic [ref=e42]:
+              - img [ref=e44]
+              - text: 最近
+          - generic [ref=e47]:
+            - button "新建会话 1秒钟前 固定 更多选项" [ref=e49]:
+              - generic [ref=e51]:
+                - generic [ref=e52]: 新建会话
+                - generic [ref=e53]: 1秒钟前
+              - button "固定" [ref=e54]:
+                - img [ref=e55]
+              - button "更多选项" [ref=e58]:
+                - img [ref=e59]
+            - button "新建会话 1秒钟前 固定 更多选项" [ref=e64]:
+              - generic [ref=e66]:
+                - generic [ref=e67]: 新建会话
+                - generic [ref=e68]: 1秒钟前
+              - button "固定" [ref=e69]:
+                - img [ref=e70]
+              - button "更多选项" [ref=e73]:
+                - img [ref=e74]
+            - 'button "Research: vector databases vs RAG 10分钟前 固定 更多选项" [ref=e79]':
+              - generic [ref=e81]:
+                - generic [ref=e82]: "Research: vector databases vs RAG"
+                - generic [ref=e83]: 10分钟前
+              - button "固定" [ref=e84]:
+                - img [ref=e85]
+              - button "更多选项" [ref=e88]:
+                - img [ref=e89]
+            - button "Prompt library – onboarding 15分钟前 固定 更多选项" [ref=e94]:
+              - generic [ref=e96]:
+                - generic [ref=e97]: Prompt library – onboarding
+                - generic [ref=e98]: 15分钟前
+              - button "固定" [ref=e99]:
+                - img [ref=e100]
+              - button "更多选项" [ref=e103]:
+                - img [ref=e104]
+            - 'button "AI agent: inbox clean-up flow 35分钟前 固定 更多选项" [ref=e109]':
+              - generic [ref=e111]:
+                - generic [ref=e112]: "AI agent: inbox clean-up flow"
+                - generic [ref=e113]: 35分钟前
+              - button "固定" [ref=e114]:
+                - img [ref=e115]
+              - button "更多选项" [ref=e118]:
+                - img [ref=e119]
+            - 'button "Code review: message composer 50分钟前 固定 更多选项" [ref=e124]':
+              - generic [ref=e126]:
+                - generic [ref=e127]: "Code review: message composer"
+                - generic [ref=e128]: 50分钟前
+              - button "固定" [ref=e129]:
+                - img [ref=e130]
+              - button "更多选项" [ref=e133]:
+                - img [ref=e134]
+            - button "LLM evals – rubric + dataset 450小时前 固定 更多选项" [ref=e139]:
+              - generic [ref=e141]:
+                - generic [ref=e142]: LLM evals – rubric + dataset
+                - generic [ref=e143]: 450小时前
+              - button "固定" [ref=e144]:
+                - img [ref=e145]
+              - button "更多选项" [ref=e148]:
+                - img [ref=e149]
+            - button "Bug triage notes 600小时前 固定 更多选项" [ref=e154]:
+              - generic [ref=e156]:
+                - generic [ref=e157]: Bug triage notes
+                - generic [ref=e158]: 600小时前
+              - button "固定" [ref=e159]:
+                - img [ref=e160]
+              - button "更多选项" [ref=e163]:
+                - img [ref=e164]
+            - button "Weekly review – personal goals 900小时前 固定 更多选项" [ref=e169]:
+              - generic [ref=e171]:
+                - generic [ref=e172]: Weekly review – personal goals
+                - generic [ref=e173]: 900小时前
+              - button "固定" [ref=e174]:
+                - img [ref=e175]
+              - button "更多选项" [ref=e178]:
+                - img [ref=e179]
+            - button "Trip checklist – Paris with family 12,342天前 固定 更多选项" [ref=e184]:
+              - generic [ref=e186]:
+                - generic [ref=e187]: Trip checklist – Paris with family
+                - generic [ref=e188]: 12,342天前
+              - button "固定" [ref=e189]:
+                - img [ref=e190]
+              - button "更多选项" [ref=e193]:
+                - img [ref=e194]
+        - generic [ref=e198]:
+          - button "折叠分区" [expanded] [ref=e199]:
+            - img [ref=e201]
+            - generic [ref=e203]:
+              - img [ref=e205]
+              - generic [ref=e207]:
+                - generic [ref=e208]: 文件夹
+                - generic [ref=e209]: 3 个文件夹
+          - generic [ref=e211]:
+            - button "新建文件夹" [ref=e212]:
+              - img [ref=e213]
+              - text: 新建文件夹
+            - generic [ref=e214]: 创建新的文件夹以组织会话
+            - generic [ref=e216]:
+              - button "展开文件夹" [ref=e217]:
+                - img [ref=e218]
+                - img [ref=e220]
+                - generic [ref=e222]: Work Projects
+              - generic [ref=e223]:
+                - generic [ref=e224]: "6"
+                - button "更多选项" [ref=e226]:
+                  - img [ref=e227]
+            - generic [ref=e232]:
+              - button "展开文件夹" [ref=e233]:
+                - img [ref=e234]
+                - img [ref=e236]
+                - generic [ref=e238]: Personal
+              - generic [ref=e239]:
+                - generic [ref=e240]: "3"
+                - button "更多选项" [ref=e242]:
+                  - img [ref=e243]
+            - generic [ref=e248]:
+              - button "展开文件夹" [ref=e249]:
+                - img [ref=e250]
+                - img [ref=e252]
+                - generic [ref=e254]: Code Reviews
+              - generic [ref=e255]:
+                - generic [ref=e256]: "2"
+                - button "更多选项" [ref=e258]:
+                  - img [ref=e259]
+        - button "展开分区" [ref=e264]:
+          - img [ref=e266]
+          - generic [ref=e268]:
+            - img [ref=e270]
+            - generic [ref=e273]:
+              - generic [ref=e274]: 模板
+              - generic [ref=e275]: 4 个模板
+      - generic [ref=e276]:
+        - generic [ref=e277]:
+          - button "设置" [ref=e278]:
+            - img [ref=e279]
+            - text: 设置
+          - button "Toggle theme" [ref=e283]:
+            - img [ref=e284]
+            - generic [ref=e286]: Dark
+        - generic [ref=e287]:
+          - generic "我" [ref=e288]
+          - generic [ref=e289]:
+            - generic [ref=e290]: 我
+            - generic [ref=e291]: 专业版工作区
+    - main [ref=e292]:
+      - generic [ref=e293]:
+        - generic [ref=e294]: 打开侧边栏，支持快捷键 ⌘B
+        - generic [ref=e295]:
+          - button "common.model" [ref=e296]:
+            - generic [ref=e297]: 🤖
+            - text: GPT-5
+            - img [ref=e298]
+          - generic [ref=e300]: 选择当前对话模型
+        - generic [ref=e301]:
+          - generic [ref=e302]:
+            - button "语言" [ref=e303]:
+              - text: 简体中文
+              - img [ref=e304]
+            - generic [ref=e306]: 选择界面语言
+          - button "更多" [ref=e307]:
+            - img [ref=e308]
+      - generic [ref=e312]:
+        - generic [ref=e313]:
+          - generic [ref=e315]: 新建会话
+          - generic [ref=e316]: 更新于 1秒钟前 · 0 条消息
+          - generic [ref=e317]:
+            - generic [ref=e318]: 认证
+            - generic [ref=e319]: 个性化
+            - generic [ref=e320]: 经验丰富
+            - generic [ref=e321]: 乐于助人
+          - generic [ref=e322]: 你好，开始聊天吧...
+        - generic [ref=e324]:
+          - generic [ref=e325]:
+            - textbox "请输入内容..." [ref=e327]
+            - generic [ref=e328]:
+              - button "添加附件" [ref=e329]:
+                - img [ref=e330]
+              - generic [ref=e331]:
+                - button "语音输入" [ref=e332]:
+                  - img [ref=e333]
+                - button "发送" [disabled] [ref=e336]:
+                  - img [ref=e337]
+                  - generic [ref=e340]: 发送
+          - generic [ref=e341]: 按 Enter 发送 · Shift+Enter 换行
+  - region "Notifications (F8)":
+    - list
+  - button "Open Next.js Dev Tools" [ref=e347] [cursor=pointer]:
+    - img [ref=e348]
+  - alert [ref=e351]
+```
+
+# Test source
+
+```ts
+   1 | import { test, expect } from './test-base';
+   2 |
+   3 |
+   4 |
+   5 |
+   6 | /**
+   7 |  * @description 导出会话 e2e（下载权限受限时回退校验 Toast 文案）
+   8 |  * @author YYC
+   9 |  * @created 2025-11-01
+  10 |  */
+  11 |
+  12 | test('导出会话为 Markdown', async ({ page }) => {
+  13 |   await page.goto('http://localhost:3003/');
+  14 |
+  15 |   // 新建会话（使用快捷键 ⌘N）
+  16 |   await page.keyboard.press('Meta+N')
+  17 |
+  18 |   // 在活动会话行内打开“更多选项”
+  19 |   const row = page.getByTitle(/(新建会话|New Chat)/)
+> 20 |   await expect(row).toBeVisible()
+     |                     ^ Error: expect(locator).toBeVisible() failed
+  21 |   await row.hover();
+  22 |   await row.getByRole('button', { name: '更多选项' }).click();
+  23 |
+  24 |   // 协同等待下载并点击“导出”
+  25 |   const [download] = await Promise.all([
+  26 |     page.waitForEvent('download'),
+  27 |     page.getByRole('button', { name: '导出' }).click(),
+  28 |   ]);
+  29 |
+  30 |   // 如下载受限，可退化为校验 Toast 文案（组件已触发 toast）
+  31 |   if (download) {
+  32 |     const path = await download.path();
+  33 |     expect(path).toBeTruthy();
+  34 |   } else {
+  35 |     await expect(page.getByText('会话已导出为 Markdown')).toBeVisible();
+  36 |   }
+  37 | });
+  38 | //
+——————————————————————————
+conversation-move.spec.ts:12
+———————————————————————————
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name:  >> 将新建会话移动到 Personal 文件夹
+- Location: conversation-move.spec.ts:12:5
+
+# Error details
+
+```
+Error: expect(locator).toBeVisible() failed
+
+Locator: getByTitle(/(新建会话|New Chat)/)
+Expected: visible
+Error: strict mode violation: getByTitle(/(新建会话|New Chat)/) resolved to 3 elements:
+    1) <button aria-label="新建会话" title="新建会话 (⌘N)" aria-describedby="desc-newchat-main" class="flex w-full items-center justify-center gap-2 rounded-full bg-zinc-900 px-4 py-2 text-sm font-medium text-white shadow-sm transition hover:bg-zinc-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 dark:bg-white dark:text-zinc-900">…</button> aka getByRole('button', { name: '新建会话', exact: true })
+    2) <div title="新建会话" tabindex="0" role="button" class="-mx-1 flex w-[calc(100%+8px)] items-center gap-2 rounded-lg px-2 py-2 text-left bg-zinc-100 text-zinc-900 dark:bg-zinc-800/60 dark:text-zinc-100">…</div> aka getByRole('button', { name: '新建会话 1秒钟前 固定 更多选项' }).first()
+    3) <div title="新建会话" tabindex="0" role="button" class="-mx-1 flex w-[calc(100%+8px)] items-center gap-2 rounded-lg px-2 py-2 text-left hover:bg-zinc-100 dark:hover:bg-zinc-800">…</div> aka getByRole('button', { name: '新建会话 1秒钟前 固定 更多选项' }).nth(1)
+
+Call log:
+  - Expect "toBeVisible" with timeout 5000ms
+  - waiting for getByTitle(/(新建会话|New Chat)/)
+
+
+  18 |   // 在活动会话行内打开“更多选项”并选择“移动到文件夹”
+  19 |   const row = page.getByTitle(/(新建会话|New Chat)/)
+> 20 |   await expect(row).toBeVisible()
+     |                     ^
+  21 |   await row.hover();
+  22 |   await row.getByRole('button', { name: '更多选项' }).click();
+  23 |   await page.getByRole('button', { name: '移动到文件夹' }).click();
+    at /Users/my/Downloads/AI-Chat/e2e/conversation-move.spec.ts:20:21
+```
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - generic [ref=e5]:
+    - complementary [ref=e6]:
+      - generic [ref=e7]:
+        - generic [ref=e8]:
+          - img "YYC³ AI" [ref=e9]
+          - generic [ref=e11]: YYC³ AI
+        - generic [ref=e12]:
+          - button "关闭侧边栏" [ref=e13]:
+            - img [ref=e14]
+          - generic [ref=e17]: 折叠侧边栏以节省空间
+          - generic [ref=e18]: 关闭移动端侧边栏
+      - generic [ref=e19]:
+        - generic [ref=e20]: 搜索
+        - generic [ref=e21]:
+          - img
+          - textbox "搜索" [ref=e22]:
+            - /placeholder: 搜索对话...
+      - generic [ref=e23]:
+        - button "新建会话" [ref=e24]:
+          - img [ref=e25]
+          - text: 新建会话
+        - generic [ref=e26]: 创建新会话，支持快捷键 ⌘N
+      - navigation [ref=e27]:
+        - button "展开分区" [ref=e29]:
+          - img [ref=e31]
+          - generic [ref=e33]:
+            - img [ref=e35]
+            - text: 置顶会话
+        - generic [ref=e37]:
+          - button "折叠分区" [expanded] [ref=e38]:
+            - img [ref=e40]
+            - generic [ref=e42]:
+              - img [ref=e44]
+              - text: 最近
+          - generic [ref=e47]:
+            - button "新建会话 1秒钟前 固定 更多选项" [ref=e49]:
+              - generic [ref=e51]:
+                - generic [ref=e52]: 新建会话
+                - generic [ref=e53]: 1秒钟前
+              - button "固定" [ref=e54]:
+                - img [ref=e55]
+              - button "更多选项" [ref=e58]:
+                - img [ref=e59]
+            - button "新建会话 1秒钟前 固定 更多选项" [ref=e64]:
+              - generic [ref=e66]:
+                - generic [ref=e67]: 新建会话
+                - generic [ref=e68]: 1秒钟前
+              - button "固定" [ref=e69]:
+                - img [ref=e70]
+              - button "更多选项" [ref=e73]:
+                - img [ref=e74]
+            - 'button "Research: vector databases vs RAG 10分钟前 固定 更多选项" [ref=e79]':
+              - generic [ref=e81]:
+                - generic [ref=e82]: "Research: vector databases vs RAG"
+                - generic [ref=e83]: 10分钟前
+              - button "固定" [ref=e84]:
+                - img [ref=e85]
+              - button "更多选项" [ref=e88]:
+                - img [ref=e89]
+            - button "Prompt library – onboarding 15分钟前 固定 更多选项" [ref=e94]:
+              - generic [ref=e96]:
+                - generic [ref=e97]: Prompt library – onboarding
+                - generic [ref=e98]: 15分钟前
+              - button "固定" [ref=e99]:
+                - img [ref=e100]
+              - button "更多选项" [ref=e103]:
+                - img [ref=e104]
+            - 'button "AI agent: inbox clean-up flow 35分钟前 固定 更多选项" [ref=e109]':
+              - generic [ref=e111]:
+                - generic [ref=e112]: "AI agent: inbox clean-up flow"
+                - generic [ref=e113]: 35分钟前
+              - button "固定" [ref=e114]:
+                - img [ref=e115]
+              - button "更多选项" [ref=e118]:
+                - img [ref=e119]
+            - 'button "Code review: message composer 50分钟前 固定 更多选项" [ref=e124]':
+              - generic [ref=e126]:
+                - generic [ref=e127]: "Code review: message composer"
+                - generic [ref=e128]: 50分钟前
+              - button "固定" [ref=e129]:
+                - img [ref=e130]
+              - button "更多选项" [ref=e133]:
+                - img [ref=e134]
+            - button "LLM evals – rubric + dataset 450小时前 固定 更多选项" [ref=e139]:
+              - generic [ref=e141]:
+                - generic [ref=e142]: LLM evals – rubric + dataset
+                - generic [ref=e143]: 450小时前
+              - button "固定" [ref=e144]:
+                - img [ref=e145]
+              - button "更多选项" [ref=e148]:
+                - img [ref=e149]
+            - button "Bug triage notes 600小时前 固定 更多选项" [ref=e154]:
+              - generic [ref=e156]:
+                - generic [ref=e157]: Bug triage notes
+                - generic [ref=e158]: 600小时前
+              - button "固定" [ref=e159]:
+                - img [ref=e160]
+              - button "更多选项" [ref=e163]:
+                - img [ref=e164]
+            - button "Weekly review – personal goals 900小时前 固定 更多选项" [ref=e169]:
+              - generic [ref=e171]:
+                - generic [ref=e172]: Weekly review – personal goals
+                - generic [ref=e173]: 900小时前
+              - button "固定" [ref=e174]:
+                - img [ref=e175]
+              - button "更多选项" [ref=e178]:
+                - img [ref=e179]
+            - button "Trip checklist – Paris with family 12,342天前 固定 更多选项" [ref=e184]:
+              - generic [ref=e186]:
+                - generic [ref=e187]: Trip checklist – Paris with family
+                - generic [ref=e188]: 12,342天前
+              - button "固定" [ref=e189]:
+                - img [ref=e190]
+              - button "更多选项" [ref=e193]:
+                - img [ref=e194]
+        - generic [ref=e198]:
+          - button "折叠分区" [expanded] [ref=e199]:
+            - img [ref=e201]
+            - generic [ref=e203]:
+              - img [ref=e205]
+              - generic [ref=e207]:
+                - generic [ref=e208]: 文件夹
+                - generic [ref=e209]: 3 个文件夹
+          - generic [ref=e211]:
+            - button "新建文件夹" [ref=e212]:
+              - img [ref=e213]
+              - text: 新建文件夹
+            - generic [ref=e214]: 创建新的文件夹以组织会话
+            - generic [ref=e216]:
+              - button "展开文件夹" [ref=e217]:
+                - img [ref=e218]
+                - img [ref=e220]
+                - generic [ref=e222]: Work Projects
+              - generic [ref=e223]:
+                - generic [ref=e224]: "6"
+                - button "更多选项" [ref=e226]:
+                  - img [ref=e227]
+            - generic [ref=e232]:
+              - button "展开文件夹" [ref=e233]:
+                - img [ref=e234]
+                - img [ref=e236]
+                - generic [ref=e238]: Personal
+              - generic [ref=e239]:
+                - generic [ref=e240]: "3"
+                - button "更多选项" [ref=e242]:
+                  - img [ref=e243]
+            - generic [ref=e248]:
+              - button "展开文件夹" [ref=e249]:
+                - img [ref=e250]
+                - img [ref=e252]
+                - generic [ref=e254]: Code Reviews
+              - generic [ref=e255]:
+                - generic [ref=e256]: "2"
+                - button "更多选项" [ref=e258]:
+                  - img [ref=e259]
+        - button "展开分区" [ref=e264]:
+          - img [ref=e266]
+          - generic [ref=e268]:
+            - img [ref=e270]
+            - generic [ref=e273]:
+              - generic [ref=e274]: 模板
+              - generic [ref=e275]: 4 个模板
+      - generic [ref=e276]:
+        - generic [ref=e277]:
+          - button "设置" [ref=e278]:
+            - img [ref=e279]
+            - text: 设置
+          - button "Toggle theme" [ref=e283]:
+            - img [ref=e284]
+            - generic [ref=e286]: Dark
+        - generic [ref=e287]:
+          - generic "我" [ref=e288]
+          - generic [ref=e289]:
+            - generic [ref=e290]: 我
+            - generic [ref=e291]: 专业版工作区
+    - main [ref=e292]:
+      - generic [ref=e293]:
+        - generic [ref=e294]: 打开侧边栏，支持快捷键 ⌘B
+        - generic [ref=e295]:
+          - button "common.model" [ref=e296]:
+            - generic [ref=e297]: 🤖
+            - text: GPT-5
+            - img [ref=e298]
+          - generic [ref=e300]: 选择当前对话模型
+        - generic [ref=e301]:
+          - generic [ref=e302]:
+            - button "语言" [ref=e303]:
+              - text: 简体中文
+              - img [ref=e304]
+            - generic [ref=e306]: 选择界面语言
+          - button "更多" [ref=e307]:
+            - img [ref=e308]
+      - generic [ref=e312]:
+        - generic [ref=e313]:
+          - generic [ref=e315]: 新建会话
+          - generic [ref=e316]: 更新于 1秒钟前 · 0 条消息
+          - generic [ref=e317]:
+            - generic [ref=e318]: 认证
+            - generic [ref=e319]: 个性化
+            - generic [ref=e320]: 经验丰富
+            - generic [ref=e321]: 乐于助人
+          - generic [ref=e322]: 你好，开始聊天吧...
+        - generic [ref=e324]:
+          - generic [ref=e325]:
+            - textbox "请输入内容..." [ref=e327]
+            - generic [ref=e328]:
+              - button "添加附件" [ref=e329]:
+                - img [ref=e330]
+              - generic [ref=e331]:
+                - button "语音输入" [ref=e332]:
+                  - img [ref=e333]
+                - button "发送" [disabled] [ref=e336]:
+                  - img [ref=e337]
+                  - generic [ref=e340]: 发送
+          - generic [ref=e341]: 按 Enter 发送 · Shift+Enter 换行
+  - region "Notifications (F8)":
+    - list
+  - button "Open Next.js Dev Tools" [ref=e347] [cursor=pointer]:
+    - img [ref=e348]
+  - alert [ref=e351]
+```
+
+# Test source
+
+```ts
+   1 | import { test, expect } from './test-base';
+   2 |
+   3 |
+   4 | /**
+   5 |  * @description 会话移动到文件夹 e2e
+   6 |  * @author YYC
+   7 |  * @created 2025-11-01
+   8 |  */
+   9 |
+  10 |
+  11 |
+  12 | test('将新建会话移动到 Personal 文件夹', async ({ page }) => {
+  13 |   await page.goto('http://localhost:3003/');
+  14 |
+  15 |   // 新建会话（使用快捷键 ⌘N）
+  16 |   await page.keyboard.press('Meta+N')
+  17 |
+  18 |   // 在活动会话行内打开“更多选项”并选择“移动到文件夹”
+  19 |   const row = page.getByTitle(/(新建会话|New Chat)/)
+> 20 |   await expect(row).toBeVisible()
+     |                     ^ Error: expect(locator).toBeVisible() failed
+  21 |   await row.hover();
+  22 |   await row.getByRole('button', { name: '更多选项' }).click();
+  23 |   await page.getByRole('button', { name: '移动到文件夹' }).click();
+  24 |   await page.getByRole('button', { name: 'Personal' }).click();
+  25 |
+  26 |   // 展开 Personal 文件夹并断言会话存在
+  27 |   await page.getByRole('button', { name: '展开文件夹' }).filter({ hasText: 'Personal' }).click();
+  28 |   await expect(page.getByText('新建会话')).toBeVisible();
+  29 | });
+  30 | //
