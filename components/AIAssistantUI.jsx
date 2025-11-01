@@ -219,7 +219,11 @@ export default function AIAssistantUI() {
   }
 
   function renameConversation(id, newTitle) {
-    setConversations((prev) => prev.map((c) => (c.id === id ? { ...c, title: newTitle, updatedAt: new Date().toISOString() } : c)));
+    setConversations((prev) =>
+      prev.map((c) =>
+        c.id === id ? { ...c, title: newTitle, updatedAt: new Date().toISOString() } : c
+      )
+    );
     toast({
       title: t('button.rename'),
       description: newTitle,
@@ -233,7 +237,10 @@ export default function AIAssistantUI() {
         c.id === convId
           ? {
               ...c,
-              messages: [...(c.messages || []), { id: Math.random().toString(36).slice(2), content, createdAt: now }],
+              messages: [
+                ...(c.messages || []),
+                { id: Math.random().toString(36).slice(2), content, createdAt: now },
+              ],
               updatedAt: now,
               preview: content.slice(0, 80),
             }
@@ -262,7 +269,9 @@ export default function AIAssistantUI() {
   }
 
   function resendMessage(convId, messageId) {
-    const msg = conversations.find((c) => c.id === convId)?.messages?.find((m) => m.id === messageId);
+    const msg = conversations
+      .find((c) => c.id === convId)
+      ?.messages?.find((m) => m.id === messageId);
     if (msg) sendMessage(convId, msg.content);
   }
 
@@ -288,7 +297,9 @@ export default function AIAssistantUI() {
   }
 
   async function copyMessage(convId, messageId) {
-    const msg = conversations.find((c) => c.id === convId)?.messages?.find((m) => m.id === messageId);
+    const msg = conversations
+      .find((c) => c.id === convId)
+      ?.messages?.find((m) => m.id === messageId);
     if (!msg) return;
     try {
       await navigator.clipboard.writeText(msg.content || '');
@@ -300,9 +311,22 @@ export default function AIAssistantUI() {
 
   function clearConversation(convId) {
     setConversations((prev) =>
-      prev.map((c) => (c.id === convId ? { ...c, messages: [], messageCount: 0, preview: t('chat.previewHello'), updatedAt: new Date().toISOString() } : c))
+      prev.map((c) =>
+        c.id === convId
+          ? {
+              ...c,
+              messages: [],
+              messageCount: 0,
+              preview: t('chat.previewHello'),
+              updatedAt: new Date().toISOString(),
+            }
+          : c
+      )
     );
-    toast({ title: t('button.delete'), description: t('message.conversationCleared') || '会话已清空' });
+    toast({
+      title: t('button.delete'),
+      description: t('message.conversationCleared') || '会话已清空',
+    });
     setSelectedMessageId(null);
   }
 
@@ -310,7 +334,8 @@ export default function AIAssistantUI() {
     const conv = conversations.find((c) => c.id === convId);
     if (!conv) return;
     const title = conv.title || 'conversation';
-    const md = `# ${title}\n\n` + (conv.messages || []).map((m, i) => `- ${m.content || ''}`).join('\n\n');
+    const md =
+      `# ${title}\n\n` + (conv.messages || []).map((m, i) => `- ${m.content || ''}`).join('\n\n');
     try {
       await navigator.clipboard.writeText(md);
     } catch {}
@@ -329,7 +354,11 @@ export default function AIAssistantUI() {
   }
 
   function moveConversationToFolder(convId, folderName) {
-    setConversations((prev) => prev.map((c) => (c.id === convId ? { ...c, folder: folderName, updatedAt: new Date().toISOString() } : c)));
+    setConversations((prev) =>
+      prev.map((c) =>
+        c.id === convId ? { ...c, folder: folderName, updatedAt: new Date().toISOString() } : c
+      )
+    );
     toast({ title: t('button.moveToFolder') || '移动到文件夹', description: `“${folderName}”` });
   }
 

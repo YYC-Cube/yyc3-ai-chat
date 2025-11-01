@@ -23,11 +23,13 @@
 一个基于 Next.js 14 App Router 的 AI 对话与健康监控示例项目，内置 API 健康包装器、自动分类（p95/错误占比）、Slack/Sentry 告警分发、E2E 测试与完善的文档体系。
 
 ## 顶图与素材
+
 - 主要 Logo：`public/yyc3-brand-logo.png`（顶图）
 - 其他素材：`public/Github-Nexus.png`、`public/Git-Nexus.png`、`public/Git-Expansion.png`
 - 在文档或 README 中可通过相对路径引用：`public/文件名.png`
 
 ## 快速开始
+
 - 安装依赖：`pnpm i`
 - 本地开发：`pnpm dev`（默认端口 `3005` 或 Playwright 使用的端口）
 - 构建与启动：`pnpm build && pnpm start`
@@ -35,12 +37,14 @@
 - E2E 测试：`pnpm e2e`
 
 ## 技术栈
+
 - 前端：Next.js 14（App Router）、React 18/19、TypeScript、Tailwind CSS
 - 后端：App Router API（Node.js）
 - 测试：Playwright（E2E）、Jest（单元）
 - 监控：Slack Webhook / Sentry（可选）
 
 ## 核心功能
+
 - API 健康包装器：`ApiHealth.monitorRoute(handler, options)`
   - 速率限制、性能阈值、错误捕获、指标采样、外部告警分发
   - 类别：`normal | heavy | auto`；`auto` 基于 `p95 > 700ms` 或错误占比 `> 5%` 动态分类
@@ -51,6 +55,7 @@
 - 环境与配置：`lib/env.ts`（Zod 校验）、`.env.example` 模板、`config/index.ts` 动态加载器
 
 ## 主要路由
+
 - `GET /api/health`：系统健康采样（auto）
 - `GET /api/health/advice`：健康建议列表（normal）
 - `GET /api/example`：示例接口（auto）
@@ -58,6 +63,7 @@
 - `GET /api/alerts-test`：性能/错误告警链路校验（非生产执行）
 
 ## 文档索引
+
 - `docs/core-features.md` 核心功能清单
 - `docs/architecture.md` 架构与核心模块
 - `docs/monitoring.md` API 监控与告警
@@ -72,16 +78,20 @@
 - `docs/CHANGELOG.md` 变更日志
 
 ## 环境与运行
+
 - 环境变量：参考 `.env.example` 并在平台侧配置密钥（CI/CD 使用 secrets）
 - 环境配置：通过 `config/index.ts` 根据 `env.NODE_ENV` 自动选择 development/production
 - Playwright 配置：本地 `next dev`、CI `next start`；E2E `baseURL` 基于 `PORT`
 
 ## 贡献与规范
+
 - 提交模板：`.github/commit_template.md`（Conventional Commits）
 - 建议在 PR 前运行 `pnpm typecheck` 与 `pnpm e2e`，确保类型与关键路径稳定
 
 ## 联系方式
+
 - Email: `admin@0379.email`
 
 ## 重要建议
+
 - 建议新路由使用 `category: 'auto'` 并在 Staging 环境启用分组 Slack 与 Sentry，观察采样与告警分布后再微调阈值与限流，实现更平衡的稳定性与性能 🌹

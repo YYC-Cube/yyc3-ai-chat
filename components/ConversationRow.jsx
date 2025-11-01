@@ -5,7 +5,19 @@ import { useI18n } from '@/lib/i18n';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useToast } from '@/hooks/use-toast';
 
-export default function ConversationRow({ data, active, onSelect, onTogglePin, showMeta, onRenameConversation, onDeleteConversation, availableFolders = [], onMoveConversation, onClearConversation, onExportConversation }) {
+export default function ConversationRow({
+  data,
+  active,
+  onSelect,
+  onTogglePin,
+  showMeta,
+  onRenameConversation,
+  onDeleteConversation,
+  availableFolders = [],
+  onMoveConversation,
+  onClearConversation,
+  onExportConversation,
+}) {
   const { t, locale, tPlural } = useI18n();
   const { toast } = useToast();
   const count = Array.isArray(data.messages) ? data.messages.length : data.messageCount;
@@ -57,7 +69,10 @@ export default function ConversationRow({ data, active, onSelect, onTogglePin, s
       const target = prompt(`${t('button.moveToFolder') || '移动到文件夹'}:`, data.folder || '');
       if (target && target.trim()) {
         onMoveConversation?.(data.id, target.trim());
-        toast({ title: t('button.moveToFolder') || '移动到文件夹', description: `“${target.trim()}”` });
+        toast({
+          title: t('button.moveToFolder') || '移动到文件夹',
+          description: `“${target.trim()}”`,
+        });
       }
       setShowMenu(false);
       setShowMoveList(false);
@@ -123,7 +138,7 @@ export default function ConversationRow({ data, active, onSelect, onTogglePin, s
           }}
           className="rounded-lg p-1 text-zinc-500 hover:bg-zinc-100 hover:text-zinc-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 dark:text-zinc-400 dark:hover:bg-zinc-800 dark:hover:text-zinc-100"
           aria-label={data.pinned ? t('button.unpin') : t('button.pin')}
-          title={(data.pinned ? t('button.unpin') : t('button.pin'))}
+          title={data.pinned ? t('button.unpin') : t('button.pin')}
         >
           <Star className={cls('h-4 w-4', data.pinned ? 'fill-current text-current' : '')} />
         </button>
@@ -163,18 +178,26 @@ export default function ConversationRow({ data, active, onSelect, onTogglePin, s
                     aria-label={t('button.moveToFolder') || '移动到文件夹'}
                     title={t('button.moveToFolder') || '移动到文件夹'}
                   >
-                    <span className="inline-flex items-center gap-1"><FolderIcon className="h-3 w-3" />{t('button.moveToFolder') || '移动到文件夹'}</span>
+                    <span className="inline-flex items-center gap-1">
+                      <FolderIcon className="h-3 w-3" />
+                      {t('button.moveToFolder') || '移动到文件夹'}
+                    </span>
                   </button>
                   {showMoveList && (
                     <div className="mt-1 max-h-40 overflow-auto rounded border border-zinc-200 dark:border-zinc-800">
                       {availableFolders.length === 0 && (
-                        <div className="px-2 py-2 text-[11px] text-zinc-500 dark:text-zinc-400">{t('message.noFolders') || '暂无文件夹'}</div>
+                        <div className="px-2 py-2 text-[11px] text-zinc-500 dark:text-zinc-400">
+                          {t('message.noFolders') || '暂无文件夹'}
+                        </div>
                       )}
                       {availableFolders.map((f) => (
                         <button
                           key={f.name}
                           onClick={() => handleSelectFolder(f.name)}
-                          className={cls('block w-full px-3 py-1.5 text-left text-xs hover:bg-zinc-100 dark:hover:bg-zinc-800', f.name === data.folder ? 'text-blue-600 dark:text-blue-400' : '')}
+                          className={cls(
+                            'block w-full px-3 py-1.5 text-left text-xs hover:bg-zinc-100 dark:hover:bg-zinc-800',
+                            f.name === data.folder ? 'text-blue-600 dark:text-blue-400' : ''
+                          )}
                           title={f.name}
                         >
                           {f.name}

@@ -21,4 +21,4 @@ export const environmentConfig = {
     maxFileSize: 10 * 1024 * 1024, // 10MB
     supportedFormats: ['jpg', 'png', 'pdf'],
   },
-}
+};

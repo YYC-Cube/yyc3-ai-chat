@@ -5,7 +5,12 @@ import { useEffect, useState } from 'react';
 import { useI18n } from '@/lib/i18n';
 import { useToast } from '@/hooks/use-toast';
 
-export default function CreateTemplateModal({ isOpen, onClose, onCreateTemplate, editingTemplate }) {
+export default function CreateTemplateModal({
+  isOpen,
+  onClose,
+  onCreateTemplate,
+  editingTemplate,
+}) {
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
   const [content, setContent] = useState('');
@@ -35,7 +40,10 @@ export default function CreateTemplateModal({ isOpen, onClose, onCreateTemplate,
         name: name.trim(),
         description: description.trim(),
         content: content.trim(),
-        tags: tags.split(',').map((t) => t.trim()).filter(Boolean),
+        tags: tags
+          .split(',')
+          .map((t) => t.trim())
+          .filter(Boolean),
       };
       onCreateTemplate(templateData);
       toast({
@@ -132,7 +140,9 @@ export default function CreateTemplateModal({ isOpen, onClose, onCreateTemplate,
                 </button>
                 <button
                   type="submit"
-                  aria-label={editingTemplate ? t('button.updateTemplate') : t('button.createTemplate')}
+                  aria-label={
+                    editingTemplate ? t('button.updateTemplate') : t('button.createTemplate')
+                  }
                   className="flex-1 rounded-lg bg-zinc-900 px-4 py-2 text-sm font-medium text-white hover:bg-zinc-800 disabled:opacity-50 disabled:cursor-not-allowed dark:bg-white dark:text-zinc-900 dark:hover:bg-zinc-100"
                 >
                   {editingTemplate ? t('button.updateTemplate') : t('button.createTemplate')}

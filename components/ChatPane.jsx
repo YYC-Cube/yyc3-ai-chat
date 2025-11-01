@@ -103,7 +103,18 @@ function AssistantMessage({ streamedText, completed, onPauseThinking }) {
 }
 
 const ChatPane = forwardRef(function ChatPane(
-  { conversation, onSend, onEditMessage, onResendMessage, onDeleteMessage, onCopyMessage, onSelectMessage, selectedMessageId, isThinking, onPauseThinking },
+  {
+    conversation,
+    onSend,
+    onEditMessage,
+    onResendMessage,
+    onDeleteMessage,
+    onCopyMessage,
+    onSelectMessage,
+    selectedMessageId,
+    isThinking,
+    onPauseThinking,
+  },
   ref
 ) {
   const [editingId, setEditingId] = useState(null);
@@ -150,13 +161,13 @@ const ChatPane = forwardRef(function ChatPane(
   return (
     <div className="flex h-full min-h-0 flex-1 flex-col overflow-y-auto">
       <div className="flex-1 space-y-5 px-4 pt-14 sm:px-8 md:pt-6 pb-28">
-         <div className="mb-2 text-3xl font-serif tracking-tight sm:text-4xl md:text-5xl">
-           <span className="block leading-[1.05] font-sans text-2xl">{conversation.title}</span>
-         </div>
-         <div className="mb-4 text-sm text-zinc-500 dark:text-zinc-400">
-           {tWithVars('message.updatedAgo', { time: timeAgo(conversation.updatedAt, locale) })} ·{' '}
-           {count} {tPlural('message.messages', count)}
-         </div>
+        <div className="mb-2 text-3xl font-serif tracking-tight sm:text-4xl md:text-5xl">
+          <span className="block leading-[1.05] font-sans text-2xl">{conversation.title}</span>
+        </div>
+        <div className="mb-4 text-sm text-zinc-500 dark:text-zinc-400">
+          {tWithVars('message.updatedAgo', { time: timeAgo(conversation.updatedAt, locale) })} ·{' '}
+          {count} {tPlural('message.messages', count)}
+        </div>
 
         <div className="mb-6 flex flex-wrap gap-2 border-b border-zinc-200 pb-5 dark:border-zinc-800">
           {tags.map((tItem) => (
@@ -178,7 +189,10 @@ const ChatPane = forwardRef(function ChatPane(
             {messages.map((m) => (
               <div
                 key={m.id}
-                className={cls('space-y-2 rounded-lg', selectedMessageId === m.id ? 'ring-2 ring-blue-500/70' : '')}
+                className={cls(
+                  'space-y-2 rounded-lg',
+                  selectedMessageId === m.id ? 'ring-2 ring-blue-500/70' : ''
+                )}
                 onClick={() => onSelectMessage?.(m.id)}
               >
                 <Message role="user">
@@ -213,9 +227,7 @@ const ChatPane = forwardRef(function ChatPane(
               </div>
             ))}
 
-            {isThinking && (
-              <ThinkingMessage onPause={onPauseThinking} />
-            )}
+            {isThinking && <ThinkingMessage onPause={onPauseThinking} />}
           </>
         )}
       </div>

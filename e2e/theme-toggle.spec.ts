@@ -18,7 +18,12 @@ test('主题切换切换 data-theme', async ({ page }) => {
   await toggleBtn.first().click();
 
   // 断言切换后主题发生变化
-  await expect.poll(async () => {
-    return await page.locator('html').getAttribute('data-theme');
-  }, { timeout: 5000 }).not.toBe(initialTheme);
+  await expect
+    .poll(
+      async () => {
+        return await page.locator('html').getAttribute('data-theme');
+      },
+      { timeout: 5000 }
+    )
+    .not.toBe(initialTheme);
 });

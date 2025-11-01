@@ -4,9 +4,9 @@
  * @author YYC
  * @created 2024-10-31
  */
-import { defineConfig } from '@playwright/test'
+import { defineConfig } from '@playwright/test';
 
-const PORT = Number(process.env.PORT || 3005)
+const PORT = Number(process.env.PORT || 3005);
 
 export default defineConfig({
   testDir: './e2e',
@@ -28,4 +28,4 @@ export default defineConfig({
     reuseExistingServer: !process.env.CI,
   },
   snapshotPathTemplate: '{testDir}/__snapshots__/{testFile}-{projectName}-{hash}.png',
-})
+});

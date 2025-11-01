@@ -19,7 +19,9 @@ test('导出新建会话为 Markdown', async ({ page }) => {
 
   // 在侧边栏选中“当前活动会话行”，兼容浅色/深色主题
   const nav = page.locator('nav');
-  const row = nav.locator(':is([role="button"].bg-zinc-100, [role="button"].dark\\:bg-zinc-800\\/60)').first();
+  const row = nav
+    .locator(':is([role="button"].bg-zinc-100, [role="button"].dark\\:bg-zinc-800\\/60)')
+    .first();
   await expect(row).toBeVisible();
 
   // 打开更多选项 -> 导出（显式等待菜单按钮与操作项可见）
@@ -33,5 +35,7 @@ test('导出新建会话为 Markdown', async ({ page }) => {
   await exportBtn.click();
 
   // 断言导出成功的 toast 文案（来自 AIAssistantUI.jsx）
-  await expect(page.getByText(/(会话已导出为\s*Markdown|Conversation exported as Markdown)/)).toBeVisible();
+  await expect(
+    page.getByText(/(会话已导出为\s*Markdown|Conversation exported as Markdown)/)
+  ).toBeVisible();
 });

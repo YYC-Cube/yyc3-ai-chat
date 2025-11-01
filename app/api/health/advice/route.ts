@@ -4,11 +4,14 @@
  * @module api/health/advice
  * @author YYC
  */
-import { NextRequest, NextResponse } from 'next/server'
-import { ApiHealth } from '@/lib/api-health'
-import { RouteHealth } from '@/lib/health-monitor'
+import { NextRequest, NextResponse } from 'next/server';
+import { ApiHealth } from '@/lib/api-health';
+import { RouteHealth } from '@/lib/health-monitor';
 
-export const GET = ApiHealth.monitorRoute(async (req: NextRequest) => {
-  const recommendations = RouteHealth.generateRecommendations()
-  return NextResponse.json({ ok: true, recommendations })
-}, { category: 'normal', performanceThresholdMs: 1000 })
+export const GET = ApiHealth.monitorRoute(
+  async (req: NextRequest) => {
+    const recommendations = RouteHealth.generateRecommendations();
+    return NextResponse.json({ ok: true, recommendations });
+  },
+  { category: 'normal', performanceThresholdMs: 1000 }
+);

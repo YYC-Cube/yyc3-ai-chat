@@ -1,13 +1,10 @@
 import { test, expect } from './test-base';
 
-
 /**
  * @description 复制消息 e2e（授予剪贴板权限）
  * @author YYC
  * @created 2025-11-01
  */
-
-
 
 test('复制消息内容到剪贴板', async ({ page, context }) => {
   await page.goto('http://localhost:3003/');
@@ -17,7 +14,7 @@ test('复制消息内容到剪贴板', async ({ page, context }) => {
 
   // 新建会话，并发送消息
   // 新建会话（使用快捷键 ⌘N）
-  await page.keyboard.press('Meta+N')
+  await page.keyboard.press('Meta+N');
   const input = page.getByPlaceholder(/(请输入内容|Type your message)/);
   await input.click();
   await input.type('复制测试消息');

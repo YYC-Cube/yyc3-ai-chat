@@ -7,15 +7,15 @@
  * @created 2025-10-31
  */
 
-'use client'
+'use client';
 
-import { I18nProvider } from '@/lib/i18n'
-import { UserProfileProvider } from '@/lib/user-profile'
-import { Analytics } from '@vercel/analytics/react'
-import { Toaster } from '@/components/ui/toaster'
+import { I18nProvider } from '@/lib/i18n';
+import { UserProfileProvider } from '@/lib/user-profile';
+import { Analytics } from '@vercel/analytics/react';
+import { Toaster } from '@/components/ui/toaster';
 
 interface ProvidersProps {
-  children: React.ReactNode
+  children: React.ReactNode;
 }
 
 export function Providers({ children }: ProvidersProps) {
@@ -28,5 +28,5 @@ export function Providers({ children }: ProvidersProps) {
         <Analytics />
       </UserProfileProvider>
     </I18nProvider>
-  )
+  );
 }

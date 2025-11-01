@@ -52,7 +52,10 @@ export default function BrandPreviewPage() {
             <img src="https://img.shields.io/badge/Playwright-E2E-2ea44f" alt="Playwright E2E" />
           </a>
           <a href="/api/health" target="_blank" rel="noreferrer">
-            <img src="https://img.shields.io/badge/CI-GitHub%20Actions-blue" alt="CI GitHub Actions" />
+            <img
+              src="https://img.shields.io/badge/CI-GitHub%20Actions-blue"
+              alt="CI GitHub Actions"
+            />
           </a>
         </div>
       </div>
@@ -60,7 +63,8 @@ export default function BrandPreviewPage() {
       {/* 预览说明与提示 */}
       <div className="mt-6 text-sm text-muted-foreground">
         <p>
-          说明：该页面仅用于视觉校对，实际 README 渲染以 GitHub 为准；如需在站点内使用横幅，可将此结构复用到首页或文档页。
+          说明：该页面仅用于视觉校对，实际 README 渲染以 GitHub
+          为准；如需在站点内使用横幅，可将此结构复用到首页或文档页。
         </p>
       </div>
     </div>

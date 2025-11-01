@@ -46,8 +46,10 @@ export function useCollapsedControls(
     [setCollapsed]
   );
 
-  const allCollapsed = collapsed.pinned && collapsed.recent && collapsed.folders && collapsed.templates;
-  const allExpanded = !collapsed.pinned && !collapsed.recent && !collapsed.folders && !collapsed.templates;
+  const allCollapsed =
+    collapsed.pinned && collapsed.recent && collapsed.folders && collapsed.templates;
+  const allExpanded =
+    !collapsed.pinned && !collapsed.recent && !collapsed.folders && !collapsed.templates;
 
   return { collapseAll, expandAll, toggle, collapse, expand, allCollapsed, allExpanded };
 }

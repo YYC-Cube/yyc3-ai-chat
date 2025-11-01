@@ -8,7 +8,7 @@
  * @updated 2024-10-31
  */
 import { NextRequest, NextResponse } from 'next/server';
-import { RouteHealth } from './health-monitor'
+import { RouteHealth } from './health-monitor';
 
 /** 指标结构 */
 export interface ApiHealthMetrics {
@@ -35,7 +35,11 @@ class RateLimiter {
   static WINDOW_MS = 60_000;
   static MAX_COUNT = 60;
 
-  static check(key: string, max = RateLimiter.MAX_COUNT, windowMs = RateLimiter.WINDOW_MS): boolean {
+  static check(
+    key: string,
+    max = RateLimiter.MAX_COUNT,
+    windowMs = RateLimiter.WINDOW_MS
+  ): boolean {
     const now = Date.now();
     const entry = this.buckets.get(key);
     if (!entry || now > entry.resetAt) {
@@ -87,7 +91,8 @@ export class ApiHealth {
 
       // 动态类别（auto）与按类别默认阈值/速率限制
       const category = baseCategory === 'auto' ? RouteHealth.getCategory(path) : baseCategory;
-      const performanceThresholdMs = options?.performanceThresholdMs ?? (category === 'heavy' ? 500 : 1000);
+      const performanceThresholdMs =
+        options?.performanceThresholdMs ?? (category === 'heavy' ? 500 : 1000);
       const rateLimitMax = options?.rateLimitMax ?? (category === 'heavy' ? 20 : 60);
       const windowMs = options?.windowMs ?? (category === 'heavy' ? 30_000 : 60_000);
 
@@ -101,7 +106,12 @@ export class ApiHealth {
           timestamp: Date.now(),
           error: 'Rate limit exceeded',
         };
-        this.sendAlert({ type: 'rate-limit', message: '速率限制触发', detail: { ...metrics, category }, at: Date.now() });
+        this.sendAlert({
+          type: 'rate-limit',
+          message: '速率限制触发',
+          detail: { ...metrics, category },
+          at: Date.now(),
+        });
         RouteHealth.recordApi(path, metrics.responseTime, 429);
         return NextResponse.json({ ok: false, error: 'Too Many Requests' }, { status: 429 });
       }
@@ -136,7 +146,12 @@ export class ApiHealth {
           path,
           timestamp: Date.now(),
         };
-        this.sendAlert({ type: 'error', message: 'API 处理异常', detail: { ...metrics, category }, at: Date.now() });
+        this.sendAlert({
+          type: 'error',
+          message: 'API 处理异常',
+          detail: { ...metrics, category },
+          at: Date.now(),
+        });
         RouteHealth.recordApi(path, responseTime, 500);
         return NextResponse.json({ ok: false, error: 'Internal Server Error' }, { status: 500 });
       }
@@ -144,7 +159,7 @@ export class ApiHealth {
   }
 }
 
-import { setupApiAlerts } from './alerts'
+import { setupApiAlerts } from './alerts';
 
 // 模块加载时绑定外部告警（如 Slack）
-setupApiAlerts()
+setupApiAlerts();

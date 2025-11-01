@@ -19,7 +19,9 @@ test('清空新建会话后统计应为 0 条消息', async ({ page }) => {
 
   // 在侧边栏中选中“当前活动会话行”，兼容浅色/深色主题
   const nav = page.locator('nav');
-  const row = nav.locator(':is([role="button"].bg-zinc-100, [role="button"].dark\\:bg-zinc-800\\/60)').first();
+  const row = nav
+    .locator(':is([role="button"].bg-zinc-100, [role="button"].dark\\:bg-zinc-800\\/60)')
+    .first();
   await expect(row).toBeVisible();
 
   // 打开更多选项并清空会话（显式等待菜单按钮与操作项可见）

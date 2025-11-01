@@ -8,7 +8,7 @@
  * @updated 2025-10-31
  */
 
-import { ApiHealth } from './api-health'
+import { ApiHealth } from './api-health';
 
 export class ErrorHandler {
   /**
@@ -19,14 +19,14 @@ export class ErrorHandler {
   static handle(error: unknown, context: string) {
     // 控制台日志（不包含敏感信息）
     // eslint-disable-next-line no-console
-    console.error(`🚨 [${context}] 错误:`, error)
+    console.error(`🚨 [${context}] 错误:`, error);
     // 外部告警（通过 ApiHealth 分发到 Slack/Sentry）
     ApiHealth.sendAlert({
       type: 'error',
       message: `模块错误: ${context}`,
       detail: { path: context, method: 'n/a', status: 500 },
       at: Date.now(),
-    })
+    });
   }
 
   /**
@@ -38,6 +38,6 @@ export class ErrorHandler {
       message: `${message}`,
       detail: { path: context, method: 'n/a', status: 500 },
       at: Date.now(),
-    })
+    });
   }
 }

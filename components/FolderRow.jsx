@@ -75,7 +75,12 @@ export default function FolderRow({
   return (
     <div className="group">
       <div className="flex items-center justify-between rounded-lg px-2 py-2 text-sm hover:bg-zinc-100 dark:hover:bg-zinc-800">
-        <button onClick={handleToggle} className="flex items-center gap-2 flex-1 text-left" aria-label={isExpanded ? '折叠文件夹' : '展开文件夹'} title={isExpanded ? '折叠文件夹' : '展开文件夹'}>
+        <button
+          onClick={handleToggle}
+          className="flex items-center gap-2 flex-1 text-left"
+          aria-label={isExpanded ? '折叠文件夹' : '展开文件夹'}
+          title={isExpanded ? '折叠文件夹' : '展开文件夹'}
+        >
           {isExpanded ? (
             <ChevronDown className="h-4 w-4 text-zinc-500" />
           ) : (

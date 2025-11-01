@@ -8,8 +8,8 @@
  * @updated 2025-10-31
  */
 
-import { env } from '../lib/env'
-import { environmentConfig as development } from './development'
-import { environmentConfig as production } from './production'
+import { env } from '../lib/env';
+import { environmentConfig as development } from './development';
+import { environmentConfig as production } from './production';
 
-export const environmentConfig = env.NODE_ENV === 'production' ? production : development
+export const environmentConfig = env.NODE_ENV === 'production' ? production : development;

@@ -10,9 +10,9 @@ import {
   Plus,
   SearchIcon,
   Settings,
-   X,
-   Star,
- } from 'lucide-react';
+  X,
+  Star,
+} from 'lucide-react';
 import { useState, useEffect } from 'react';
 import ConversationRow from './ConversationRow';
 import CreateFolderModal from './CreateFolderModal';
@@ -26,7 +26,12 @@ import ThemeToggle from './ThemeToggle';
 import { cls } from './utils';
 import { useI18n } from '@/lib/i18n';
 import { useUserProfile } from '@/lib/user-profile';
-import { ContextMenu, ContextMenuContent, ContextMenuItem, ContextMenuTrigger } from '@/components/ui/context-menu';
+import {
+  ContextMenu,
+  ContextMenuContent,
+  ContextMenuItem,
+  ContextMenuTrigger,
+} from '@/components/ui/context-menu';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 import { Sheet, SheetContent } from '@/components/ui/sheet';
 import { useIsMobile } from '@/hooks/use-mobile';
@@ -185,7 +190,9 @@ export default function Sidebar({
           >
             <Plus className="h-5 w-5" />
           </button>
-          <span id="desc-newchat" className="sr-only">新建会话，创建一个新的聊天</span>
+          <span id="desc-newchat" className="sr-only">
+            新建会话，创建一个新的聊天
+          </span>
 
           <button
             onClick={() => setShowSearchModal(true)}
@@ -196,7 +203,9 @@ export default function Sidebar({
           >
             <SearchIcon className="h-5 w-5" />
           </button>
-          <span id="desc-search" className="sr-only">搜索会话与模板</span>
+          <span id="desc-search" className="sr-only">
+            搜索会话与模板
+          </span>
 
           <ContextMenu>
             <ContextMenuTrigger asChild>
@@ -205,29 +214,31 @@ export default function Sidebar({
                   <button
                     onClick={() => setShowCreateFolderModal(true)}
                     onTouchStart={() => {
-                       const timer = setTimeout(() => {
-                         if (isMobile) {
-                           setFolderMenuSheetOpen(true);
-                         } else {
-                           setFolderMenuOpen(true);
-                         }
-                       }, 500);
-                       // 保存到元素上，避免状态污染
-                       // @ts-ignore
-                       window.__folderMenuTimer = timer;
-                     }}
-                     onTouchEnd={() => {
-                       // @ts-ignore
-                       if (window.__folderMenuTimer) clearTimeout(window.__folderMenuTimer);
-                     }}
+                      const timer = setTimeout(() => {
+                        if (isMobile) {
+                          setFolderMenuSheetOpen(true);
+                        } else {
+                          setFolderMenuOpen(true);
+                        }
+                      }, 500);
+                      // 保存到元素上，避免状态污染
+                      // @ts-ignore
+                      window.__folderMenuTimer = timer;
+                    }}
+                    onTouchEnd={() => {
+                      // @ts-ignore
+                      if (window.__folderMenuTimer) clearTimeout(window.__folderMenuTimer);
+                    }}
                     className="rounded-xl p-2 hover:bg-zinc-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 dark:hover:bg-zinc-800"
                     aria-label={t('common.folders')}
-                     aria-describedby="desc-folders"
-                     title={t('common.folders')}
-                   >
-                     <FolderIcon className="h-5 w-5" />
-                   </button>
-                   <span id="desc-folders" className="sr-only">打开文件夹菜单，支持创建/折叠全部/展开全部</span>
+                    aria-describedby="desc-folders"
+                    title={t('common.folders')}
+                  >
+                    <FolderIcon className="h-5 w-5" />
+                  </button>
+                  <span id="desc-folders" className="sr-only">
+                    打开文件夹菜单，支持创建/折叠全部/展开全部
+                  </span>
                 </PopoverTrigger>
                 <PopoverContent className="w-44 p-2" align="center">
                   <button
@@ -320,7 +331,9 @@ export default function Sidebar({
               >
                 <Settings className="h-5 w-5" />
               </button>
-              <span id="desc-settings" className="sr-only">打开设置与偏好</span>
+              <span id="desc-settings" className="sr-only">
+                打开设置与偏好
+              </span>
             </SettingsPopover>
           </div>
         </div>
@@ -379,7 +392,9 @@ export default function Sidebar({
                 >
                   <PanelLeftClose className="h-5 w-5" />
                 </button>
-                <span id="desc-collapse-sidebar" className="sr-only">折叠侧边栏以节省空间</span>
+                <span id="desc-collapse-sidebar" className="sr-only">
+                  折叠侧边栏以节省空间
+                </span>
 
                 <button
                   onClick={onClose}
@@ -390,7 +405,9 @@ export default function Sidebar({
                 >
                   <X className="h-5 w-5" />
                 </button>
-                <span id="desc-close-sidebar-mobile" className="sr-only">关闭移动端侧边栏</span>
+                <span id="desc-close-sidebar-mobile" className="sr-only">
+                  关闭移动端侧边栏
+                </span>
               </div>
             </div>
 
@@ -424,7 +441,9 @@ export default function Sidebar({
               >
                 <Plus className="h-4 w-4" /> {t('common.newChat')}
               </button>
-              <span id="desc-newchat-main" className="sr-only">创建新会话，支持快捷键 ⌘N</span>
+              <span id="desc-newchat-main" className="sr-only">
+                创建新会话，支持快捷键 ⌘N
+              </span>
             </div>
 
             <nav className="mt-4 flex min-h-0 flex-1 flex-col gap-4 overflow-y-auto px-2 pb-4">
@@ -509,7 +528,9 @@ export default function Sidebar({
                   >
                     <Plus className="h-4 w-4" /> {t('button.createFolder')}
                   </button>
-                  <span id="desc-create-folder" className="sr-only">创建新的文件夹以组织会话</span>
+                  <span id="desc-create-folder" className="sr-only">
+                    创建新的文件夹以组织会话
+                  </span>
 
                   {folders.map((f) => (
                     <FolderRow
@@ -558,7 +579,9 @@ export default function Sidebar({
                   >
                     <Plus className="h-4 w-4" /> {t('button.createTemplate')}
                   </button>
-                  <span id="desc-create-template" className="sr-only">创建新的模板以复用提示与设置</span>
+                  <span id="desc-create-template" className="sr-only">
+                    创建新的模板以复用提示与设置
+                  </span>
 
                   {(Array.isArray(templates) ? templates : []).map((template) => (
                     <TemplateRow

@@ -8,7 +8,7 @@
  * @updated 2024-10-31
  */
 
-import type { HealthMetrics, Recommendation } from '../types/health'
+import type { HealthMetrics, Recommendation } from '../types/health';
 
 export class HealthMonitor {
   static sample(): HealthMetrics {
@@ -52,8 +52,6 @@ export interface RouteStats {
   errors: number; // 错误次数
   updatedAt: number; // 最近更新时间戳
 }
-
-
 
 const MAX_SAMPLES = 200;
 const statsMap = new Map<string, RouteStats>();
@@ -119,7 +117,7 @@ export const RouteHealth = {
           expectedImprovement: '响应时间降低30%-50%',
           effort: p95 > 1200 ? 'high' : 'medium',
           path: s.path,
-        })
+        });
       }
       if (errRate > 0.05) {
         recs.push({
@@ -131,7 +129,7 @@ export const RouteHealth = {
           expectedImprovement: '错误率降低40%-60%',
           effort: errRate > 0.15 ? 'high' : 'medium',
           path: s.path,
-        })
+        });
       }
     }
     // 按优先级排序

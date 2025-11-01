@@ -21,7 +21,11 @@ export default function ThemeToggle({ theme, setTheme }) {
     >
       {/* 客户端挂载前渲染固定图标，避免与服务器输出不一致 */}
       {mounted ? (
-        theme === 'dark' ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />
+        theme === 'dark' ? (
+          <Sun className="h-4 w-4" />
+        ) : (
+          <Moon className="h-4 w-4" />
+        )
       ) : (
         <Sun className="h-4 w-4" aria-hidden />
       )}

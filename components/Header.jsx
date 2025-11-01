@@ -38,7 +38,9 @@ export default function Header({ createNewChat, sidebarCollapsed, setSidebarOpen
           <Menu className="h-5 w-5" />
         </button>
       )}
-      <span id="desc-open-sidebar-mobile" className="sr-only">打开侧边栏，支持快捷键 ⌘B</span>
+      <span id="desc-open-sidebar-mobile" className="sr-only">
+        打开侧边栏，支持快捷键 ⌘B
+      </span>
 
       <div className="hidden md:flex relative">
         <button
@@ -58,7 +60,9 @@ export default function Header({ createNewChat, sidebarCollapsed, setSidebarOpen
           {selectedBot}
           <ChevronDown className="h-4 w-4" />
         </button>
-        <span id="desc-model-select" className="sr-only">选择当前对话模型</span>
+        <span id="desc-model-select" className="sr-only">
+          选择当前对话模型
+        </span>
 
         {isDropdownOpen && (
           <div className="absolute top-full left-0 mt-1 w-48 rounded-lg border border-zinc-200 bg-white shadow-lg dark:border-zinc-800 dark:bg-zinc-950 z-50">
@@ -101,7 +105,9 @@ export default function Header({ createNewChat, sidebarCollapsed, setSidebarOpen
             {t(locale === 'zh-CN' ? 'common.zhCN' : 'common.enUS')}
             <ChevronDown className="h-4 w-4" />
           </button>
-          <span id="desc-language" className="sr-only">选择界面语言</span>
+          <span id="desc-language" className="sr-only">
+            选择界面语言
+          </span>
           {isLangOpen && (
             <div className="absolute top-full right-0 mt-1 w-40 rounded-lg border border-zinc-200 bg-white shadow-lg dark:border-zinc-800 dark:bg-zinc-950 z-50">
               <button

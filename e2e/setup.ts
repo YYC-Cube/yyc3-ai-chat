@@ -10,7 +10,9 @@ import type { Page } from '@playwright/test';
  */
 export async function installCleanLocalStorage(page: Page): Promise<void> {
   await page.addInitScript(() => {
-    try { localStorage.clear(); } catch {}
+    try {
+      localStorage.clear();
+    } catch {}
   });
 }
 
