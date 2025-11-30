@@ -2,4 +2,4 @@
 . "$(dirname "$0")/_/husky.sh"
 
 # 预提交运行 lint-staged（ESLint/Prettier）
-pnpm lint-staged
+npx lint-staged
